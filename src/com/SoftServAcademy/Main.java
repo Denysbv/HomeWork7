@@ -10,13 +10,9 @@ public class Main {
     	// #1
 	String one = "House";
 	String two = "Full house of House is full";
-	boolean b = false;
-	for (int i =0; i<two.length(); i++) {
-		if (two.startsWith(one, i)) {
-			b = true;
-		}
-	}
+	boolean b = two.contains(one);
 	System.out.println(b);
+
 	// #2
 		String name = "Bob";
 		String surname = "Smith";
@@ -39,11 +35,11 @@ public class Main {
 		// #3
 		String name2;
 		System.out.println("Enter name: ");
-		Pattern pattern = Pattern.compile("([a-zA-Z0-9_]+)");
+		Pattern pattern = Pattern.compile("([a-zA-Z0-9_]{3,15})");
 		String temp = scanner.next();
 		sb.delete(0, sb.capacity());
 		Matcher matcher = pattern.matcher(temp);
-		if (matcher.matches() & ((temp.length()>2) & (temp.length()<16))) {
+		if (matcher.matches()) {
 			sb.append(temp);
 			name2 = sb.toString();
 			System.out.println(name2);
